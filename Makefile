@@ -2,8 +2,8 @@ DEVICE_PATH=/dev/ttyACM0
 MMCU=atmega2560
 PROGRAMMER=wiring
 
-C_ARGS=-mmcu=$(MMCU) -Os -DLOGGER_ERRORS_ENABLE -DLOGGER_INFO_ENABLE -DLOGGER_DEBUG_ENABLE
-C_MODULES=a1602 io status usart dht11
+C_ARGS=-mmcu=$(MMCU) -Os -DLOGGER_ERRORS_ENABLE -DLOGGER_INFO_ENABLE -DLOGGER_DEBUG_ENABLE -Wl,-u,vfprintf -lprintf_flt
+C_MODULES=a1602 io status usart dht11 vma306 buzzer color
 C_MODULE_SOURCES=$(foreach module,$(C_MODULES),modules/$(module).c)
 
 prepare:

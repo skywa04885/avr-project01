@@ -7,6 +7,7 @@
 
 #include "../include.h"
 #include "io.h"
+#include "status.h"
 
 typedef struct {
   volatile uint8_t *ddr, *port, *pin;
